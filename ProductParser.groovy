@@ -25,8 +25,12 @@ class ProductParser {
     }
 
     public static void main(String[] args){
-	def nameout = 'prods.xml'
-        ProductParser.parse(args[0], nameout)
-        new File(nameout).eachLine{println it}
+    	if(args.length > 0 && args[0] && args[0] != '') {
+		def nameout = 'prods.xml'
+	        ProductParser.parse(args[0], nameout)
+	        new File(nameout).eachLine{println it}
+    	} else {
+    		println 'Point file name to parse!'
+    	}
     }
 }
